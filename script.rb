@@ -13,17 +13,21 @@ class Game
   def codes_compare
     code_array = @code.split('')
     guess_array = @guess.split('')
-    clues = []
-    code_array.each_with_index do |number, index|
-      if guess_array[index] == number
-        clues.push('hard')
-      elsif guess_array.any?(number)
-        clues.push('soft')
-      end
-    end
+    clues = check_for_clues(code_array, guess_array)
     puts clues
   end
+end
 
+def check_for_clues(code_array, guess_array)
+  clues = []
+  code_array.each_with_index do |number, index|
+    if guess_array[index] == number
+      clues.push('hard')
+    elsif guess_array.any?(number)
+      clues.push('soft')
+    end
+  end
+  clues
 end
 
 def gameplay_code_breaker
