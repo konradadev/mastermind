@@ -2,7 +2,7 @@ class Game
   attr_writer :guess
 
   def initialize
-    @code = '1234'
+    @code = generate_code
     @guess = ''
   end
 
@@ -28,6 +28,12 @@ def check_for_clues(code_array, guess_array)
     end
   end
   clues
+end
+
+def generate_code
+  random_code_array = []
+  random_code_array.push(rand(1..6)) while random_code_array.length < 4
+  random_code_array.join.to_s
 end
 
 def gameplay_code_breaker
