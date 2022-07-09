@@ -10,7 +10,7 @@ class Game
     @code == @guess
   end
 
-  def codes_compare
+  def compare_codes
     code_array = @code.split('')
     guess_array = @guess.split('')
     clues = check_for_clues(code_array, guess_array)
@@ -36,7 +36,7 @@ def gameplay_code_breaker
     puts 'Try to guess the code:'
     guess = gets.chomp
     game.guess = guess
-    game.codes_compare
+    game.compare_codes
   end
   puts 'You won'
 end
